@@ -1,3 +1,10 @@
+const user = require("../../mongoDB/models/user_schema");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+
+// get the JWT secret key from the .env file
+const secretKey = process.env.JWT_SECRET_KEY;
+
 const login = async (req, res) => {
   const { email, password } = req.body;
 
@@ -6,30 +13,39 @@ const login = async (req, res) => {
   }
 
   try {
-    const userlogin = await User.findOne({ email: email });
-    console.log(userlogin);
+    const userlogin = await user.findOne({ email: email });
     if (userlogin) {
-      const isMatch = await bcrypt.compare(password, userlogin.password);
-      console.log(isMatch);
+      const checkPassword = await bcrypt.compare(password, userlogin.password);
 
-      if (!isMatch) {
-        res.status(400).json({ error: "invalid crediential pass" });
+      if (!checkPassword) {
+        res.status(400).json({ error: "Invalid password" });
       } else {
-        const token = await userlogin.generatAuthtoken();
-        console.log(token);
+        // specify the maxAge of the JWT token
+        const maxAge = 3 * 60 * 60;
 
+        // create the token using email
+        const token = jwt.sign(
+          {
+            email,
+          },
+          secretKey,
+          {
+            expiresIn: maxAge,
+          }
+        );
+
+        // send this token as a cookie to the user
         res.cookie("eccomerce", token, {
-          expires: new Date(Date.now() + 2589000),
           httpOnly: true,
+          maxAge: maxAge * 1000,
         });
-        res.status(201).json(userlogin);
+        res.status(200).json(userlogin);
       }
     } else {
-      res.status(400).json({ error: "user not exist" });
+      res.status(400).json({ error: "User does not exist" });
     }
   } catch (error) {
-    res.status(400).json({ error: "invalid crediential pass" });
-    console.log("error the bhai catch ma for login time" + error.message);
+    res.status(400).json({ error: "Error while logging in the user" });
   }
 };
 
