@@ -1,4 +1,4 @@
-exports.logout = async (req, res) => {
+const logout = async (req, res) => {
   try {
     res.clearCookie("eccomerce", { path: "/" });
     res.status(200).json({ message: "User logged out successfully" });
@@ -6,3 +6,5 @@ exports.logout = async (req, res) => {
     res.status(400).json({ message: "Error in logging out the user" });
   }
 };
+
+module.exports = logout;

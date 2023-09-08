@@ -5,7 +5,7 @@ const register = async (req, res) => {
   const { fname, email, mobile, password, cpassword } = req.body;
 
   if (!fname || !email || !mobile || !password || !cpassword) {
-    res.status(400).json({ error: "Fill in all the details" });
+    return res.status(400).json({ error: "Fill in all the details" });
   }
 
   try {
@@ -25,11 +25,18 @@ const register = async (req, res) => {
         });
 
         const storedata = await finaluser.save();
-        res.status(200).json(storedata);
+        res
+          .status(200)
+          .json({
+            data: storedata,
+            message: "User registration successful...",
+          });
       });
     }
   } catch (error) {
-    console.log("Error in registering user, try again" + error.message);
+    console.log(
+      "Error in registering user, try again. Error : " + error.message
+    );
     res.status(400).send(error);
   }
 };

@@ -39,7 +39,9 @@ const login = async (req, res) => {
           httpOnly: true,
           maxAge: maxAge * 1000,
         });
-        res.status(200).json(userlogin);
+        res
+          .status(200)
+          .json({ data: userlogin, message: "User login successful..." });
       }
     } else {
       res.status(400).json({ error: "User does not exist" });
