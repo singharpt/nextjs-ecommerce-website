@@ -25,12 +25,10 @@ const register = async (req, res) => {
         });
 
         const storedata = await finaluser.save();
-        res
-          .status(200)
-          .json({
-            data: storedata,
-            message: "User registration successful...",
-          });
+        res.status(200).json({
+          data: storedata,
+          message: "User registration successful...",
+        });
       });
     }
   } catch (error) {

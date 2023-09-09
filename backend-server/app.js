@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 require("./mongoDB/connection/connect");
 require("dotenv").config();
+var cors = require("cors");
 
 var router = require("./routes/router");
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use("/", router);
 

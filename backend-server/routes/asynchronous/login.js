@@ -9,7 +9,8 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    res.status(400).json({ error: "fill the details" });
+    console.log("Invalid credentials");
+    return res.status(400).json({ error: "fill the details" });
   }
 
   try {
@@ -18,7 +19,8 @@ const login = async (req, res) => {
       const checkPassword = await bcrypt.compare(password, userlogin.password);
 
       if (!checkPassword) {
-        res.status(400).json({ error: "Invalid password" });
+        console.log("Invalid credentials password");
+        return res.status(400).json({ error: "Invalid password" });
       } else {
         // specify the maxAge of the JWT token
         const maxAge = 3 * 60 * 60;
@@ -39,15 +41,17 @@ const login = async (req, res) => {
           httpOnly: true,
           maxAge: maxAge * 1000,
         });
-        res
+        return res
           .status(200)
           .json({ data: userlogin, message: "User login successful..." });
       }
     } else {
-      res.status(400).json({ error: "User does not exist" });
+      console.log("User does not exists");
+      return res.status(400).json({ error: "User does not exist" });
     }
   } catch (error) {
-    res.status(400).json({ error: "Error while logging in the user" });
+    console.log("Error while logging in the user. Error : ", error);
+    return res.status(400).json({ error: "Error while logging in the user" });
   }
 };
 

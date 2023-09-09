@@ -25,3 +25,274 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.login__upp {
+  display: flex;
+  justify-content: center;
+  height: max-content;
+  background-color: white;
+  flex-direction: column;
+}
+
+.login__logo {
+  display: flex;
+  object-fit: fill;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 130px;
+  margin-top: 20px;
+}
+
+.login__box {
+  max-width: 300px;
+  height: max-content;
+  border: 1px solid gray;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-color: rgb(205, 204, 204);
+  border-radius: 3px;
+}
+
+.login__box__heading {
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.login__box__title {
+  font-size: small;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.login__textbox {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 3px;
+  height: 30px;
+  border: 1px solid rgb(133, 132, 132);
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.login__button {
+  background-color: #f7c955e3;
+  border: 1px solid;
+  height: 30px;
+  width: 102%;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  margin-bottom: 15px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.login__button:hover {
+  background-color: #f0c351;
+}
+
+.login__button:active {
+  transform: scale(0.98);
+}
+
+.login__box__info1 {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.login__box__info2 {
+  margin-top: 15px;
+  color: rgb(25, 107, 215);
+  font-size: small;
+  font-weight: 700;
+}
+
+.login__horizationLine > h2 {
+  text-align: center;
+  border-bottom: 1px solid #000;
+  line-height: 0.05em;
+  margin: 10px 0 20px;
+  width: 355px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: small;
+  border-color: rgb(205, 204, 204);
+}
+
+.login__horizationLine > h2 span {
+  background: #fff;
+  padding: 0 5px;
+  color: rgb(133, 132, 132);
+}
+
+.login__create__account__button {
+  margin-left: auto;
+  margin-right: auto;
+  width: 355px;
+  border: 1px solid;
+  height: 28px;
+  color: #111;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  background-color: rgba(229, 228, 228, 0.781);
+}
+
+.login__create__account__button:hover {
+  background-color: rgb(229, 228, 228);
+}
+
+.login__create__account__button:active {
+  transform: scale(0.98);
+}
+
+.login__bellow {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login__bellow__line1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(12, 74, 154, 0.865);
+}
+
+.login__bellow > small {
+  text-align: center;
+  font-size: 10px;
+}
+
+.signUp__upper__part {
+  display: flex;
+  justify-content: center;
+  height: max-content;
+  background-color: white;
+  flex-direction: column;
+}
+
+.signUp__logo {
+  display: flex;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 130px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.signUp__box {
+  max-width: 300px;
+  height: max-content;
+  border: 1px solid gray;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 18px;
+  margin-bottom: 20px;
+  border-color: rgb(205, 204, 204);
+  border-radius: 3px;
+}
+
+.signUp__heading {
+  margin-bottom: 15px;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+.signUp__box__title {
+  font-size: small;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.signUp__textbox {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 3px;
+  height: 30px;
+  border: 1px solid rgb(133, 132, 132);
+  border-radius: 2px;
+  font-size: 15px;
+}
+
+.SignUp__button {
+  background-color: #f7c955e3;
+  border: 1px solid;
+  height: 30px;
+  width: 102%;
+  border-color: #a88734 #9c7e31 #846a29;
+  color: #111;
+  margin-bottom: 10px;
+  border-radius: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 15px;
+}
+
+.SignUp__button:hover {
+  background-color: #f0c351;
+}
+
+.SignUp__button:active {
+  transform: scale(0.98);
+}
+
+.signUp__box__info {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.signUp__to__logIn > hr {
+  text-align: center;
+  border-bottom: 0.01px solid #000;
+  line-height: 0.05em;
+  margin: 10px 0 20px;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-color: rgb(205, 204, 204);
+}
+
+.signUp__to__logIn > p {
+  margin-top: 15px;
+  font-size: small;
+  font-weight: 500;
+}
+
+.signUp__lower__part {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 230px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.signUp__lower__info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 11px;
+  font-weight: 500;
+  color: rgba(12, 74, 154, 0.865);
+}
+
+.signUp__lower__part > small {
+  text-align: center;
+  font-size: 10px;
+}
