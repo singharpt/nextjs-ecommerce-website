@@ -2,8 +2,12 @@ import * as React from "react";
 import Link from "next/link";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/router";
 
 function Register() {
+  // to do programmatical navigation
+  const router = useRouter();
+
   const [currentState, setState] = React.useState({
     fname: "",
     email: "",
@@ -71,7 +75,9 @@ function Register() {
           password: "",
           cpassword: "",
         });
-        toast.notify("Registration Successfully done 😃!", {
+        //navigate to login page
+        router.replace("/login");
+        toast.notify("Registration successfully done, please login 😃!", {
           duration: 5,
           type: "success",
         });
@@ -90,7 +96,7 @@ function Register() {
         <Link href="/" style={{ textDecoration: "none" }}>
           <img
             className="signUp__logo"
-            src="https://m.media-amazon.com/images/I/31epF-8N9LL.png"
+            src="https://cdn.worldvectorlogo.com/logos/logo-amazon.svg"
             alt="sign up page logo"
           />
         </Link>
@@ -112,7 +118,7 @@ function Register() {
               className="signUp__textbox"
               type="text"
               onChange={addData}
-              placeholder="Email"
+              placeholder=" Email"
               value={currentState.email}
               name="email"
               id="email"
@@ -122,7 +128,7 @@ function Register() {
               className="signUp__textbox"
               type="text"
               onChange={addData}
-              placeholder="Mobile Number"
+              placeholder=" Mobile Number"
               value={currentState.mobile}
               name="mobile"
               id="mobile"
@@ -158,7 +164,7 @@ function Register() {
             <hr />
             <p>
               Already have an account?{" "}
-              <Link href="/login" style={{ textDecoration: "none" }}>
+              <Link href="/login" style={{ color: "#03298e" }}>
                 Sign In
               </Link>
             </p>

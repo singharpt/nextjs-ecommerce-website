@@ -3,8 +3,11 @@ import { User_context } from "../components/context/context_provider";
 import { toast, ToastContainer } from "react-nextjs-toast";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const Login = () => {
+  // to do programmatical navigation
+  const router = useRouter();
   // get the user context to store user detail
   const { account, setAccount } = useContext(User_context);
 
@@ -49,9 +52,11 @@ const Login = () => {
           duration: 5,
           type: "success",
         });
+        //navigate to home page
+        router.replace("/");
       }
     } catch (error) {
-      toast.notify(`Error while logging in`, {
+      toast.notify(`User does not exist, please register`, {
         duration: 5,
         type: "error",
       });
@@ -66,7 +71,7 @@ const Login = () => {
         <Link href="/" style={{ textDecoration: "none" }}>
           <img
             className="login__logo"
-            src="https://m.media-amazon.com/images/I/31epF-8N9LL.png"
+            src="https://cdn.worldvectorlogo.com/logos/logo-amazon.svg"
             alt="login page logo"
           />
         </Link>
